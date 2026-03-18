@@ -1,5 +1,6 @@
 {
   "name": "supa-transfer",
+  "sideEffects": false,
   "version": "1.0.0",
   "type": "module",
   "files": [
@@ -35,7 +36,6 @@
     "globals": "^17.4.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.56.1",
-    "vite": "^8.0.0",
-    "vite-plugin-dts": "^4.5.4"
+    "vite": "^8.0.0"
   }
 }

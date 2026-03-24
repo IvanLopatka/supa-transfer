@@ -1,1 +1,2 @@
-export * from './storage.utils';
+export * from './storage';
+export * from './types';

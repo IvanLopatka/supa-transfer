@@ -9,20 +9,22 @@
   "main": "./dist/my-supabase-utils.umd.js",
   "module": "./dist/my-supabase-utils.es.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/my-supabase-utils.es.js",
+      "require": "./dist/my-supabase-utils.umd.js"
+    }
+  },
   "peerDependencies": {
     "@supabase/supabase-js": "^2.0.0",
     "react": "^18.0.0"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc --emitDeclarationOnly --declaration --declarationDir dist",
+    "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^19.2.4",
-    "supabase": "^2.78.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
@@ -36,6 +38,10 @@
     "globals": "^17.4.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.56.1",
-    "vite": "^8.0.0"
+    "vite": "^8.0.0",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "vite-plugin-dts": "^4.5.4"
   }
 }

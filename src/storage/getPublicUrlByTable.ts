@@ -2,14 +2,11 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import type { ExtractSchemaName, ExtractTables, ExtractColumns, ExtractColumnType } from '../types';
 
 export interface GetPublicUrlOptions {
-  /**
-   * If not provided, defaults to the tableName string.
-   */
+
+  // If not provided, defaults to the tableName string.
   bucket?: string;
 
-  /**
-   * Supabase image transformation parameters.
-   */
+  // Supabase image transformation parameters.
   transform?: {
     width?: number;
     height?: number;
@@ -35,7 +32,7 @@ export function getPublicUrlByTable<
 >(
   client: SupabaseClient<Database, SchemaName>,
   tableName: TableName,
-  columnName: ColumnName,
+  _columnName: ColumnName,
   path: ExtractColumnType<Database, TableName, ColumnName, SchemaName>,
   options?: GetPublicUrlOptions
 ): string {

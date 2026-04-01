@@ -15,12 +15,9 @@ describe('getPublicUrlByTable', () => {
       }
     };
 
-    // 2. Викликаємо вашу функцію
     const url = getPublicUrlByTable(mockSupabase as any, 'profiles', 'avatar_url', 'path/to/file.png');
 
-    // 3. Перевіряємо результат
     expect(url).toBe('https://example.com/photo.png');
-    // Перевіряємо, чи викликався правильний бакет (наприклад, якщо у вас там логіка мапінгу)
     expect(mockSupabase.storage.from).toHaveBeenCalledWith('profiles');
   });
 });

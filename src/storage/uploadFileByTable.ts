@@ -1,15 +1,12 @@
+'use strict';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { ExtractSchemaName, ExtractTables, ExtractColumns, ExtractColumnType } from '../types';
 
 export interface UploadFileOptions {
-  /**
-   * If not provided, defaults to the tableName string.
-   */
+  // If not provided, defaults to the tableName string.
   bucket?: string;
 
-  /**
-   * Supabase storage upload options.
-   */
+  // Supabase storage upload options.
   cacheControl?: string;
   contentType?: string;
   upsert?: boolean;
@@ -52,5 +49,5 @@ export async function uploadFileByTable<
     throw error;
   }
 
-  return data;
+  return data.path;
 }

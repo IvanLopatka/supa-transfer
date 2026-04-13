@@ -2,14 +2,10 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import type { ExtractSchemaName, ExtractTables, ExtractColumns, ExtractColumnType } from '../types';
 
 export interface GetSignedUrlOptions {
-  /**
-   * If not provided, defaults to the tableName string.
-   */
+  // If not provided, defaults to the tableName string.
   bucket?: string;
 
-  /**
-   * Supabase image transformation parameters.
-   */
+  // Supabase image transformation parameters.
   transform?: {
     width?: number;
     height?: number;
@@ -51,9 +47,16 @@ export async function getSignedUrlByTable<
     });
 
   if (error || !data) {
-    console.error(`Error generating signed URL for ${String(tableName)}/${String(path)}:`, error);
+    if (error) {
+      console.error(`Error generating signed URL for ${String(tableName)}/${String(path)}:`, error);
+    }
     return null;
   }
 
-  return data.signedUrl;
+  // Handle both v1 and v2 responses if necessary, 
+  // though peerDeps say ^2.0.0, it's safer to check.
+  const url = typeof data === 'string' ? data : (data as any).signedUrl;
+  
+  return url || null;
 }
+

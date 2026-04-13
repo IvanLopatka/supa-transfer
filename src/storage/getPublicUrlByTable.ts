@@ -1,3 +1,4 @@
+'use strict';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { ExtractSchemaName, ExtractTables, ExtractColumns, ExtractColumnType } from '../types';
 

@@ -11,6 +11,7 @@
   "compilerOptions": {
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowUnreachableCode": false
+    "allowUnreachableCode": false,
+    "alwaysStrict": true
   }
 }

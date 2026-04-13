@@ -89,12 +89,6 @@ describe('uploadFileByTable', () => {
     };
 
     const file = new File(['test'], 'test.txt', { type: 'text/plain' });
-
-    // In current implementation it throws Error('Path is required for upload')
-    // and returns null if !path in getSignedUrlByTable. Consistency is good.
-    // Let's see what our current implementation does.
-    // getSignedUrlByTable returns null.
-    // uploadFileByTable throws Error.
     
     await expect(uploadFileByTable(mockSupabase as any, 'profiles', 'avatar_url', '', file))
       .rejects.toThrow('Path is required for upload');

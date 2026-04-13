@@ -1,0 +1,25 @@
+# Source & Tests
+src/
+*.test.ts
+*.spec.ts
+__tests__/
+
+# Configuration
+vite.config.ts
+tsconfig.json
+tsconfig.*.json
+eslint.config.js
+.prettierrc
+.gitignore
+
+# Environment & Secrets
+.env
+.env.*
+.npmrc
+
+# Logs & Temp
+*.log
+node_modules/
+dist-ssr/
+coverage/
+.vite/

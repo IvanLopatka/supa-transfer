@@ -15,8 +15,8 @@ export default defineConfig({
     lib: {
 
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'MySupabaseUtils',
-      fileName: (format) => `my-supabase-utils.${format}.js`,
+      name: 'SupaTransfer',
+      fileName: (format) => `supa-transfer.${format}.js`,
       formats: ['es', 'umd'],
     },
     rollupOptions: {

@@ -1,7 +1,7 @@
 # supa-transfer 🚀
 
 [![npm version](https://img.shields.io/npm/v/supa-transfer.svg)](https://www.npmjs.com/package/supa-transfer)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT]](https://opensource.org/licenses/MIT)
 [![Tested with Vitest](https://img.shields.io/badge/tested%20with-vitest-blue)](https://vitest.dev/)
 
 A specialized Supabase utility library designed to bridge the gap between your database tables and storage buckets. Effortlessly manage files with full type safety based on your existing database schema.

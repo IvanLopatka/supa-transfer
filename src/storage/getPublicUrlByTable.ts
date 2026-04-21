@@ -25,13 +25,13 @@ export interface GetPublicUrlOptions {
 * @param path The actual string reference populated in the Database record
 * @param options Storage settings such as transformations or bucket overrides
 */
-export function getPublicUrlByTable<
+export function getPublicUrlByTable<T = any,
   Database = any,
   SchemaName extends string & Exclude<keyof Database, '__InternalSupabase'> = ExtractSchemaName<Database>,
   TableName extends ExtractTables<Database, SchemaName> = ExtractTables<Database, SchemaName>,
   ColumnName extends ExtractColumns<Database, TableName, SchemaName> = ExtractColumns<Database, TableName, SchemaName>
 >(
-  client: SupabaseClient<Database, SchemaName>,
+  client: SupabaseClient<T>,
   tableName: TableName,
   _columnName: ColumnName,
   path: ExtractColumnType<Database, TableName, ColumnName, SchemaName>,

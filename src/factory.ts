@@ -11,7 +11,7 @@ import type { ExtractSchemaName, ExtractTables, ExtractColumns, ExtractColumnTyp
 export function createSupabaseImageUtils<
   Database = any,
   SchemaName extends string & Exclude<keyof Database, '__InternalSupabase'> = ExtractSchemaName<Database>
->(client: SupabaseClient<Database, SchemaName>) {
+>(client: SupabaseClient<any>) {
   return {
     getPublicUrl: <
       TableName extends ExtractTables<Database, SchemaName> = ExtractTables<Database, SchemaName>,

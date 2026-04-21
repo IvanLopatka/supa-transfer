@@ -15,13 +15,13 @@ export interface RemoveFileOptions {
 * @param paths The path or array of paths to delete
 * @param options Storage settings such as bucket overrides
 */
-export async function removeFileByTable<
+export async function removeFileByTable<T = any,
   Database = any,
   SchemaName extends string & Exclude<keyof Database, '__InternalSupabase'> = ExtractSchemaName<Database>,
   TableName extends ExtractTables<Database, SchemaName> = ExtractTables<Database, SchemaName>,
   ColumnName extends ExtractColumns<Database, TableName, SchemaName> = ExtractColumns<Database, TableName, SchemaName>
 >(
-  client: SupabaseClient<Database, SchemaName>,
+  client: SupabaseClient<T>,
   tableName: TableName,
   _columnName: ColumnName,
   paths: ExtractColumnType<Database, TableName, ColumnName, SchemaName> | Array<ExtractColumnType<Database, TableName, ColumnName, SchemaName>>,
@@ -30,7 +30,7 @@ export async function removeFileByTable<
   if (!paths) return;
 
   const bucketName = options?.bucket ?? String(tableName);
-  
+
   const formattedPaths = Array.isArray(paths) ? paths : [paths];
 
   const { data, error } = await client.storage

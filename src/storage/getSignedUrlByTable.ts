@@ -23,13 +23,13 @@ export interface GetSignedUrlOptions {
 * @param expiresIn The number of seconds until the signed URL expires.
 * @param options Storage settings such as transformations or bucket overrides
 */
-export async function getSignedUrlByTable<
+export async function getSignedUrlByTable<T = any,
   Database = any,
   SchemaName extends string & Exclude<keyof Database, '__InternalSupabase'> = ExtractSchemaName<Database>,
   TableName extends ExtractTables<Database, SchemaName> = ExtractTables<Database, SchemaName>,
   ColumnName extends ExtractColumns<Database, TableName, SchemaName> = ExtractColumns<Database, TableName, SchemaName>
 >(
-  client: SupabaseClient<Database, SchemaName>,
+  client: SupabaseClient<T>,
   tableName: TableName,
   _columnName: ColumnName,
   path: ExtractColumnType<Database, TableName, ColumnName, SchemaName>,
@@ -56,7 +56,7 @@ export async function getSignedUrlByTable<
   // Handle both v1 and v2 responses if necessary, 
   // though peerDeps say ^2.0.0, it's safer to check.
   const url = typeof data === 'string' ? data : (data as any).signedUrl;
-  
+
   return url || null;
 }
 

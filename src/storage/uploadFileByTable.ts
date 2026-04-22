@@ -20,13 +20,13 @@ export interface UploadFileOptions {
 * @param file The file body (File, Blob, ArrayBuffer, etc.)
 * @param options Storage settings such as caching or bucket overrides
 */
-export async function uploadFileByTable<
+export async function uploadFileByTable<T = any,
   Database = any,
   SchemaName extends string & Exclude<keyof Database, '__InternalSupabase'> = ExtractSchemaName<Database>,
   TableName extends ExtractTables<Database, SchemaName> = ExtractTables<Database, SchemaName>,
   ColumnName extends ExtractColumns<Database, TableName, SchemaName> = ExtractColumns<Database, TableName, SchemaName>
 >(
-  client: SupabaseClient<Database, SchemaName>,
+  client: SupabaseClient<T>,
   tableName: TableName,
   _columnName: ColumnName,
   path: ExtractColumnType<Database, TableName, ColumnName, SchemaName> | string,
